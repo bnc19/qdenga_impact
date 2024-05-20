@@ -2,9 +2,9 @@
 
 
 # About this repository
-This repository contains all the code needed to reproduce the results presented in Impact of antigen test target failure and testing strategies on the transmission of SARS-CoV-2 variants, in full. All data used is made available in the repository.
+This repository contains all the code needed to reproduce the results presented in Efficacy, public health impact and optimal use of the Takeda dengue vaccine, in full. All data used is made available in the repository.
 
-All required packages and their versions are available in the DESCRIPTION file. Instructions to install download Rstan can be found here.
+All required packages and their versions are available in the DESCRIPTION file. Instructions to install download cmdStan can be found [here](https://mc-stan.org/users/interfaces/cmdstan).
 
 # Repository structure
 
