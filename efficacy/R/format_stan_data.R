@@ -91,7 +91,7 @@ N_hosp_BVK4 = hosp %>%
   filter(serotype != "all", trial != "both") %>%
   arrange(year, serostatus, trial , serotype)
 
-hosp_BVK4_m = array(N_hosp_BVK4$Y, dim = c(B * K * V, 3))  # (D=4)
+hosp_BVK4_m = array(N_hosp_BVK4$Y, dim = c(B * K * V, 4))  
 
 # calculate # VCD by serostatus + trial arm + serotype, over time --------------
 # for multinomial likelihood
