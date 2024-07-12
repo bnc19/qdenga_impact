@@ -1,9 +1,11 @@
-# Script to plot the main figure including model fit and the vaccine efficacy 
-# estimate (Fig. 2) 
+# Script to plot the vaccine efficacy main figure including model fit (Fig. 2) 
 
 # load functions 
 library(tidyverse)
 library(Hmisc)
+
+# setwd(paste0(getwd(), "/efficacy"))
+
 
 theme_set(
   theme_bw() +
@@ -24,20 +26,19 @@ age_fill2 = scales::brewer_pal(palette = "Blues")(4)[c(2,4)]
 serotype_fill = c("#BDC9E1", "#D55E00", "#CC79A7", "#016C59")
 trial_fill = c("#C51B8A", "#99CC99")
 
-
 # source files 
 file.sources = paste0("R/", list.files(path = "R/"))
 sapply(file.sources, source)
-path = "output/final/M30_FINAL/"
+path = "output/M30/"
 
-# thesis path 
-# path = "output/final/M32_FINAL/"
+# create folders
+dir.create("figures")
 
 # Data 
 VE = readRDS(paste0(path, "VE.RDS"))
 AR = readRDS(paste0(path, "AR.RDS"))
-VCD =  read.csv("data/processed/vcd_data.csv")
-hosp = read.csv("data/processed/hosp_data.csv")
+VCD =  read.csv("data/vcd_data.csv")
+hosp = read.csv("data/hosp_data.csv")
 
 # Tidy data 
 VCD = factor_VCD(VCD)
@@ -50,7 +51,7 @@ AR_model = extract_model_results(AR)
 # calculate attack rates from data 
 AR_data = calc_attack_rates(VCD)
 HR_data = calc_hosp_rates(VCD=VCD, hosp = hosp)
-data= bind_rows(AR_data, HR_data)
+data = bind_rows(AR_data, HR_data)
 
 # plot VE 
 VE_plot =  VE_model %>%
@@ -260,7 +261,7 @@ g2 = cowplot::plot_grid(g1, VE_plot, rel_heights = c(1,1.4),
 
 ggsave(
   plot = g2,
-  filename =  "output/figures/main_fit_ve_fig.png",
+  filename =  "figures/main_fit_ve_fig.png",
   height = 21,
   width = 18,
   units = "cm",
