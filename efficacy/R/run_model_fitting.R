@@ -144,17 +144,6 @@ write.csv(posterior_chains, paste0(file_path, "/posterior_chains.csv"))
 posterior = summarise_draws(posterior_chains)
 write.csv(posterior, paste0(file_path, "/posterior.csv"))
 
-if (BF == T & L_K == 0)
-  calculate_bayes(
-    stan_fit = stan_fit,
-    L_mean = L_mean,
-    L_sd = L_sd,
-    file_path = file_path,
-    lower = lower_bound_L
-  )
-# run diagnostics --------------------------------------------------------------
-if(diagnostics == T) diagnose_stan_fit(stan_fit, file_path, pars)
-
 # WAIC 
 WAIC = waic(stan_fit$draws("log_lik"))
 saveRDS(WAIC, file = paste0(file_path, "/WAIC.RDS"))
@@ -170,7 +159,7 @@ for (i in 1:length(metric)) {
   ggsave(out2[[i]], file = paste0(file_path, "/PPC2_", metric[i], ".jpg"))
 }
 
-# plot fit ---------------------------------------------------------------------  
+# save output ---------------------------------------------------------------------  
 AR = which(grepl("AR" , names(fit_ext)))
 AR_out = fit_ext[AR] %>%  as.data.frame()
 saveRDS(AR_out, paste0(file_path, "/AR.RDS"))
@@ -182,7 +171,5 @@ saveRDS(VE_out, paste0(file_path, "/VE.RDS"))
 n = which(grepl("n" , names(fit_ext)))
 n_out = fit_ext[n] %>%  as.data.frame()
 saveRDS(n_out, paste0(file_path, "/n.RDS"))
-
-plot_output(file_path = file_path)
 
 }

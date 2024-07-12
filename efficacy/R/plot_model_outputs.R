@@ -700,12 +700,12 @@ plot_output = function(VCD=NULL,
   
   # data
 if(is.null(VCD)) {
-  VCD =  read.csv("data/processed/vcd_data.csv")
+  VCD =  read.csv("data/vcd_data.csv")
   VCD = factor_VCD(VCD)
 } 
 
 if(is.null(hosp)) {
-  hosp = read.csv("data/processed/hosp_data.csv")
+  hosp = read.csv("data/hosp_data.csv")
   hosp = factor_VCD(hosp)
 }
   
