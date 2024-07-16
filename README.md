@@ -4,7 +4,7 @@
 # About this repository
 This repository contains all the code needed to reproduce the results presented in the manuscript: Efficacy, public health impact and optimal use of the Takeda dengue vaccine. 
 
-All data used for model calibration is available in the repository under *efficacy/data*. 
+All data used for model calibration is available in the repository under *Efficacy/data*. 
 
 All required packages and their versions are available in the DESCRIPTION file. Instructions to install and download cmdStan can be found [here](https://mc-stan.org/users/interfaces/cmdstan).
 
