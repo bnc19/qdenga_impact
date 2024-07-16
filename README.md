@@ -21,7 +21,7 @@ This repository is divided into two sections:
 **This folder contains**
 
 ### Scripts
-* *1_VE_model_fitting.R*: Main script to calibrate the stan model to the publically available data. 
+* *1_VE_model_fitting.R*: Main script to calibrate the stan model to the publicly available data. The script is set up to run the final model (M30) using 1000 iterations. All other model variants presented in the manuscript can be run below. All model variants are run using the same stan model (*final_model.csv*)  with different parameters turned on and off, using the flags. 
 * *2_plot_VE_figure.R*: Main script to plot the attack rates and vaccine efficacy estimated in *1_VE_model_fitting.R*, to reconstruct Figure 1 in the manuscript. 
 
 ### Data
@@ -30,6 +30,11 @@ This repository is divided into two sections:
 * *vcd_data.csv*: symptomatic VCD case extracted from the published phase III clinical trial [1-5]. 
 * *n0_new.csv*: initial neutralising antibody titres induced by Qdenga vaccination, extracted from the published phase III clinical trial [1-5]. 
 * *seropositive_by_age_baseline.csv*: number of baseline seropositive individuals by age group, extracted from the published phase III clinical trial [1-5].
+
+### Models
+
+* *final_model.csv*: Rstan models to fit a the Bayesian survival model to case data, assuming binomial and multinomial likelihoods. Flags in the data block turn on and off different parameters, used to test the 31 model variants presented in the main analysis. 
+
 
 ### R
 * *factor_data.R*: functions to format the data.
