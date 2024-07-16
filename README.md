@@ -4,7 +4,7 @@
 # About this repository
 This repository contains all the code needed to reproduce the results presented in the manuscript: Efficacy, public health impact and optimal use of the Takeda dengue vaccine. 
 
-All data used for model calibration is available in the repository under *efficacy/data*. 
+All data used for model calibration is available in the repository under *Efficacy/data*. 
 
 All required packages and their versions are available in the DESCRIPTION file. Instructions to install and download cmdStan can be found [here](https://mc-stan.org/users/interfaces/cmdstan).
 
@@ -28,12 +28,12 @@ This repository is divided into two sections:
 
 * *hosp_data.csv*: hospital VCD case data extracted from the published phase III clinical trial [1-5]. 
 * *vcd_data.csv*: symptomatic VCD case extracted from the published phase III clinical trial [1-5]. 
-* *n0_new.csv*: initial neutralising antibody titres induced by Qdenga vaccination, extracted from the published phase III clinical trial [1-5]. 
+* *n0_new.csv*: initial neutralising antibody titres induced by Qdenga vaccination, fitted from the published phase III clinical trial [1-5]. 
 * *seropositive_by_age_baseline.csv*: number of baseline seropositive individuals by age group, extracted from the published phase III clinical trial [1-5].
 
 ### Models
 
-* *final_model.csv*: Rstan models to fit a the Bayesian survival model to case data, assuming binomial and multinomial likelihoods. Flags in the data block turn on and off different parameters, used to test the 31 model variants presented in the main analysis. 
+* *final_model.csv*: Rstan model to fit a the Bayesian survival model to case data, assuming binomial and multinomial likelihoods. Flags in the data block turn on and off different parameters, used to test the 31 model variants presented in the manuscript. 
 
 
 ### R
