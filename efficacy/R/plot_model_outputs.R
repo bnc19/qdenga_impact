@@ -683,10 +683,7 @@ plot_output = function(VCD=NULL,
                        VE = NULL,
                        n = NULL,
                        serostatus= c("seronegative", "monotypic", "multitypic")) {
-  library(tidyverse)
-  library(Hmisc)
-  library(cowplot)
-  
+
   theme_set(
     theme_bw() +
       theme(

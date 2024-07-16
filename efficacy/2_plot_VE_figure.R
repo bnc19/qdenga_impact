@@ -1,7 +1,9 @@
 # Script to plot the vaccine efficacy main figure including model fit (Fig. 2) 
 
 # load functions 
-library(tidyverse)
+library(dplyr)
+library(tidyr)
+library(ggplot2) 
 library(Hmisc)
 
 # setwd(paste0(getwd(), "/efficacy"))

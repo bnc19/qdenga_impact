@@ -73,6 +73,9 @@ library(cmdstanr)
 library(posterior)
 library(bayesplot)
 library(loo)
+library(Hmisc)
+library(cowplot)
+  
 options(mc.cores = parallel::detectCores())
 
 # source functions
