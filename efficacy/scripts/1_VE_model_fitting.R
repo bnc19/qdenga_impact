@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------------
 
 # source functions
-#setwd(paste0(getwd(), "/efficacy"))
+# setwd(paste0(getwd(), "/efficacy"))
 
 file.sources = paste0("R/", list.files(path = "R/"))
 sapply(file.sources, source)
