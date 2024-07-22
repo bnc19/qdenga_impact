@@ -42,6 +42,29 @@ This repository is divided into two sections:
 * *run_model_fitting.R*: function to calibrate the stan model to the publically available data.
 * *plot_model_outputs.R*: functions to calculate the observed attack rates and format model outputs for plotting. 
 
+
+## Impact
+**This folder contains**
+
+### Scripts
+* *run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination in order to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run, to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
+
+### Data
+
+* *ps_new24.csv*: 200 posterior samples of the survival model, obtained by running the code in the *efficacy* section of this repo. 
+
+
+### Models
+
+* *ps_new24.csv*:  Transmission model used to estimate the population and individual level impact of Qdenga.
+
+
+### R
+* *run_who_cluster.R*: functions to equlibriate the model, run the model with vaccination, and run the model without vaccination. 
+* *process_demog.R*: function to 
+* *run_model_fitting.R*: function to calibrate the stan model to the publically available data.
+* *plot_model_outputs.R*: functions to calculate the observed attack rates and format model outputs for plotting. 
+
 # References 
 
 1.	Biswal, S. et al. Efficacy of a tetravalent dengue vaccine in healthy children and adolescents. N. Engl. J. Med. 381, 2009–2019 (2019).
