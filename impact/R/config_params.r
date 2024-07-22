@@ -182,7 +182,7 @@ config_params <- function(posterior_file,ns,vacc_cov,zero_ve,vacc_age,DoVEInf,va
 #                                   pp$lc.3.1.[i],pp$lc.3.2.[i],pp$lc.3.3.[i],pp$lc.3.4.[i]),nrow = 4, ncol = 3)
     pars[[i]]$nc50_dis <- matrix(c(pp$lc.1.1.[i],pp$lc.1.1.[i],pp$lc.1.1.[i],pp$lc.1.1.[i],
                                    pp$lc.2.1.[i],pp$lc.2.2.[i],pp$lc.2.3.[i],pp$lc.2.4.[i],
-                                   pp$lc.3.1.[i],pp$lc.3.2.[i],pp$lc.3.3.[i],pp$lc.3.4.[i]),nrow = 4, ncol = 3)
+                                   pp$lc.3.1.[i],pp$lc.3.1.[i],pp$lc.3.1.[i],pp$lc.3.1.[i]),nrow = 4, ncol = 3)
     pars[[i]]$nc50_inf <- pars[[i]]$nc50_dis + chi
     pars[[i]]$nc50_sdis <- pars[[i]]$nc50_dis - pp$alpha.1.[i]
     pars[[i]]$nc50_inf <- exp(pars[[i]]$nc50_inf)
