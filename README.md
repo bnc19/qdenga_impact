@@ -6,7 +6,7 @@ This repository contains all the code needed to reproduce the results presented 
 
 All data used for model calibration is available in the repository under *Efficacy/data*. 
 
-All required packages and their versions are available in the DESCRIPTION file. Instructions to install and download cmdStan can be found [here](https://mc-stan.org/users/interfaces/cmdstan).
+All required packages and their versions are available in the DESCRIPTION file. Instructions to download and install cmdStan can be found [here](https://mc-stan.org/users/interfaces/cmdstan). Instructions to download and install Rtools can be found [here](https://cran.r-project.org/bin/windows/Rtools/).
 
 # Repository structure
 
@@ -14,7 +14,8 @@ This repository is divided into two sections:
 
 * *Efficacy* - code to fit the cohort Bayesian survival model to published clinical incidence data in Stan to estimate Qdenga's efficacy. **Note that the code is currently set up to run the final model locally for 1000 iterations with the first 500 discarded as burn in. This is to demo the models quickly (~15 minutes on a standard computer). To obtain the results provided in the manuscript, four chains were run for 10,000 iterations, discarding the first 5000 iterations as burnin.**
   
-* *Impact* - code to sample from the posterior distributions obtained in *efficacy* and simulate impact using a stochastic compartmental dengue transmission model. 
+* *Impact* - code to sample from the posterior distributions obtained in *efficacy* and simulate impact using a stochastic compartmental dengue transmission model. **Note that the code is currently set up to run one vaccine scenario using 10 simulations for each of 50 posterior samples. To obtain the results provided in the manuscript, 50 simulations were run for each of 200 posterior samples.*
+
 
 ## Efficacy
 
@@ -44,6 +45,25 @@ This repository is divided into two sections:
 
 
 ## Impact
+
+For the main manuscript, we ran the following scenarios: 
+
+  - Assumed demography: Brazil or Phillipines
+  - Vaccine mechanism of protection: only disease or also against infection
+  - Duration of vaccine decay: 15 years or 5 years
+  - Age of vaccination: 6 to 12 years
+  - Transmission intensity setting (average 9 years seroprevalence): 10% to 90%
+  - Vaccine coverage: 20%, 40%, 60%, 80%
+  - Pre-vaccination screening to identify seropositive individuals: yes/no
+
+The code in this repo shows how to run four scenarios (Brazil, vaccine 
+protects disease only for 15 years, vaccination of age 6 with 80% coverage,
+without pre-vaccination screening, in transmission settings with 20%, 40%, 60%,
+and 80% 9-year-old seropositivity).
+
+For these scenarios, the demo samples the posterior VE estimates 50 times, 
+and run 10 stochastic simulations per sample.
+
 **This folder contains**
 
 ### Scripts
