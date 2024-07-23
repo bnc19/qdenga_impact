@@ -62,7 +62,7 @@ For these scenarios, the demo samples the posterior VE estimates 50 times and ru
 
 **This folder contains**
 
-* *ps_new24.csv*: 200 posterior samples of the survival model, obtained by running the code in the *efficacy* section of this repo. 
+* *ps_new24.csv*: 200 posterior samples of the survival model, which can be estimated by running the code in the *efficacy* section of this repo. 
 
 ### Scripts
 * *1.run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
