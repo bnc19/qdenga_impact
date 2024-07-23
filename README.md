@@ -14,7 +14,7 @@ This repository is divided into two sections:
 
 * *Efficacy* - code to fit the cohort Bayesian survival model to published clinical incidence data in Stan to estimate Qdenga's efficacy. **Note that the code is currently set up to run the final model locally for 1000 iterations with the first 500 discarded as burn in. This is to demo the models quickly (~15 minutes on a standard computer). To obtain the results provided in the manuscript, four chains were run for 10,000 iterations, discarding the first 5000 iterations as burnin.**
   
-* *Impact* - code to sample from the posterior distributions obtained in *efficacy* and simulate impact using a stochastic compartmental dengue transmission model. **Note that the code is currently set up to run one vaccine scenario using 10 simulations for each of 50 posterior samples. To obtain the results provided in the manuscript, 50 simulations were run for each of 200 posterior samples.*
+* *Impact* - code to sample from the posterior distributions obtained in *efficacy* and simulate impact using a stochastic compartmental dengue transmission model. **Note that the code is currently set up to run four vaccine scenarios using 10 simulations for each of 50 posterior samples. To obtain the results provided in the manuscript, 50 simulations were run for each of 200 posterior samples, across 4032 scenarios.**
 
 
 ## Efficacy
@@ -56,18 +56,15 @@ For the main manuscript, we ran the following scenarios:
   - Vaccine coverage: 20%, 40%, 60%, 80%
   - Pre-vaccination screening to identify seropositive individuals: yes/no
 
-The code in this repo shows how to run four scenarios (Brazil, vaccine 
-protects disease only for 15 years, vaccination of age 6 with 80% coverage,
-without pre-vaccination screening, in transmission settings with 20%, 40%, 60%,
-and 80% 9-year-old seropositivity).
+The code in this repo shows how to run four scenarios (Brazil, vaccine protects disease only for 15 years, vaccination of age 6 with 80% coverage, without pre-vaccination screening, in transmission settings with 20%, 40%, 60%, and 80% 9-year-old seropositivity).
 
-For these scenarios, the demo samples the posterior VE estimates 50 times, 
-and run 10 stochastic simulations per sample.
+For these scenarios, the demo samples the posterior VE estimates 50 times, and run 10 stochastic simulations per sample.
 
 **This folder contains**
 
 ### Scripts
-* *run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination in order to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run, to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
+* *1.run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination in order to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run, to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
+* *1.run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination in order to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run, to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
 
 ### Data
 
