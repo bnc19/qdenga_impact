@@ -18,5 +18,12 @@ Imports:
     cmdstanr (>= 0.8.0),
     bayesplot (>= 1.11.1),
     posterior (>= 1.5.0)
+    devtools (>= 2.4.5)
+    pkgbuild (>= 1.4.4)
+    pkgload (>= 1.4.0)
+    odin.dust (>= 0.3.11)
+    dust (>= 0.15.2)
+    odin (>= 1.5.11)
+    matrixStats (>= 0.63.0)
 Depends: 
     R (>= 4.4.0)
