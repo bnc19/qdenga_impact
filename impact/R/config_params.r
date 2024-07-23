@@ -21,15 +21,7 @@ config_params <- function(posterior_file,ns,vacc_cov,zero_ve,vacc_age,DoVEInf,va
   
   nvy <- 2100-VACC_YEAR+1
   coverage_d <- matrix(c(VACC_YEAR:2100,rep(vacc_cov,nvy)),nrow=nvy,ncol=2)
-  
-  # demog <- process_demog("demog/",
-  #                      "demog/births_all",
-  #                      "demog/pop_all",
-  #                      "demog/life_ex_all",
-  #                      "demog/mort_rate_all",
-  #                      countries[cn],
-  #                      c(0:19,20,30,40,50,60,70,80,90),
-  #                      TRUE,"")
+
   
   demog <- process_demog("demog/",
                               "demog/births_all",
@@ -157,29 +149,17 @@ config_params <- function(posterior_file,ns,vacc_cov,zero_ve,vacc_age,DoVEInf,va
     pars[[i]]$dis_pri <- c(pp$gamma[i]/pp$rho.1.[i],pp$gamma[i]/pp$rho.1.[i],pp$gamma[i]/pp$rho.1.[i],pp$gamma[i]/pp$rho.1.[i])
     pars[[i]]$dis_tert <- pars[[i]]$dis_pri * pp$phi[i]
     pars[[i]]$dis_quart <- pars[[i]]$dis_tert
-### code to directly use serotype specific hosp estimates (not used, as biased by country)
-#    pars[[i]]$sdis_pri <-  pars[[i]]$dis_pri * c(pp$delta.1[i],pp$delta.2[i],pp$delta.3[i],pp$delta.4[i])
-#    pars[[i]]$sdis_sec <-  pars[[i]]$dis_sec * c(pp$delta.1[i],pp$delta.2[i],pp$delta.3[i],pp$delta.4[i])
-#    pars[[i]]$sdis_tert <-  pars[[i]]$dis_tert * c(pp$delta.1[i],pp$delta.2[i],pp$delta.3[i],pp$delta.4[i])
-
-# code assuming no serotype differences in prop of symp cases hospitalised
 # likely needs lower risk for tertiary/quaternary
     pars[[i]]$sdis_pri <-  pars[[i]]$dis_pri * country_hosp[cn]
     pars[[i]]$sdis_sec <-  pars[[i]]$dis_sec * country_hosp[cn]
     pars[[i]]$sdis_tert <-  pars[[i]]$dis_tert * country_hosp[cn]
     pars[[i]]$sdis_quart <-  pars[[i]]$sdis_tert
     pars[[i]]$ws <- c(pp$w.1.[i],pp$w.1.[i],pp$w.1.[i],pp$w.1.[i])
-#    pars[[i]]$L_dis <- matrix(c(1+pp$L.1.1.[i],1+pp$L.2.1.[i],1+pp$L.3.1.[i],1+pp$L.4.1.[i],
-#                                1,1,1,1,1,1,1,1),nrow = 4, ncol = 3)
-#    pars[[i]]$L_sdis <- matrix(c(1+pp$L.1.1.[i]*pp$tau.1.[i],1+pp$L.2.1.[i]*pp$tau.2.[i],1+pp$L.3.1.[i]*pp$tau.3.[i],1+pp$L.4.1.[i]*pp$tau.4.[i],
-#                                 1,1,1,1,1,1,1,1),nrow = 4, ncol = 3)
+
     pars[[i]]$L_dis <- matrix(c(1+pp$L.1.1.[i],1+pp$L.1.1.[i],1+pp$L.1.1.[i],1+pp$L.1.1.[i],
                                 1,1,1,1,1,1,1,1),nrow = 4, ncol = 3)
     pars[[i]]$L_sdis <- matrix(c(1+pp$L.1.1.[i]*pp$tau.1.[i],1+pp$L.1.1.[i]*pp$tau.2.[i],1+pp$L.1.1.[i]*pp$tau.3.[i],1+pp$L.1.1.[i]*pp$tau.4.[i],
                                  1,1,1,1,1,1,1,1),nrow = 4, ncol = 3)
-#    pars[[i]]$nc50_dis <- matrix(c(pp$lc.1.1.[i],pp$lc.1.2.[i],pp$lc.1.3.[i],pp$lc.1.4.[i],
-#                                   pp$lc.2.1.[i],pp$lc.2.2.[i],pp$lc.2.3.[i],pp$lc.2.4.[i],
-#                                   pp$lc.3.1.[i],pp$lc.3.2.[i],pp$lc.3.3.[i],pp$lc.3.4.[i]),nrow = 4, ncol = 3)
     pars[[i]]$nc50_dis <- matrix(c(pp$lc.1.1.[i],pp$lc.1.1.[i],pp$lc.1.1.[i],pp$lc.1.1.[i],
                                    pp$lc.2.1.[i],pp$lc.2.2.[i],pp$lc.2.3.[i],pp$lc.2.4.[i],
                                    pp$lc.3.1.[i],pp$lc.3.1.[i],pp$lc.3.1.[i],pp$lc.3.1.[i]),nrow = 4, ncol = 3)
