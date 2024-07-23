@@ -24,4 +24,20 @@ prop_averted <- function(t.nv, t.v){
 
 
 
+#  function to format cohort data to plot individual risk  / benefit 
+
+format_cohort = function(data_cohort, col_names, sp9, metric){
+  out = data_cohort %>% 
+    select(any_of(col_names)) %>%
+    mutate(measure = c(rep("mean", 9) , rep("low", 9), rep("up", 9)),
+           sp9 = rep(sp9, 3),
+           metric = metric) %>% 
+    pivot_longer(cols = - c(measure,sp9,metric)) %>% 
+    pivot_wider(names_from = measure, values_from = value)
+  
+  return(out)
+}
+
+
+
 
