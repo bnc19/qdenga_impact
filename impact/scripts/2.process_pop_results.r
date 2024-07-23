@@ -21,8 +21,8 @@ new_folder <- paste0(dis.scale, "_", sdis.scale[1], "_", sdis.scale[2])
 # create folders 
 dir.create(pathout, showWarnings = F)
 dir.create(paste0(pathout, folder_type), showWarnings = F)
-dir.create(file.path(paste0(pathout, folder_type, new_folder), "csv"), showWarnings = F)
-
+dir.create(file.path(paste0(pathout, folder_type, new_folder)), showWarnings = F)
+dir.create(file.path(paste0(pathout, folder_type, new_folder), "/csv"), showWarnings = F)
 #### scenario set set up 
 
 # set to match demo runs, but for the paper the scenarios run were:
