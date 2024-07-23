@@ -34,7 +34,7 @@ This repository is divided into two sections:
 
 ### Models
 
-* *final_model.csv*: Rstan model to fit a the Bayesian survival model to case data, assuming binomial and multinomial likelihoods. Flags in the data block turn on and off different parameters, used to test the 31 model variants presented in the manuscript. 
+* *final_model.csv*: Rstan model to fit the Bayesian survival model to case data, assuming binomial and multinomial likelihoods. Flags in the data block turn on and off different parameters used to test the 31 model variants presented in the manuscript. 
 
 
 ### R
@@ -48,44 +48,43 @@ This repository is divided into two sections:
 
 For the main manuscript, we ran the following scenarios: 
 
-  - Assumed demography: Brazil or Phillipines
-  - Vaccine mechanism of protection: only disease or also against infection
+  - Assumed demography: Brazil or Philippines
+  - Vaccine mechanism of protection: only against disease or also against infection
   - Duration of vaccine decay: 15 years or 5 years
   - Age of vaccination: 6 to 12 years
   - Transmission intensity setting (average 9 years seroprevalence): 10% to 90%
   - Vaccine coverage: 20%, 40%, 60%, 80%
   - Pre-vaccination screening to identify seropositive individuals: yes/no
 
-The code in this repo shows how to run four scenarios (Brazil, vaccine protects disease only for 15 years, vaccination of age 6 with 80% coverage, without pre-vaccination screening, in transmission settings with 20%, 40%, 60%, and 80% 9-year-old seropositivity).
+The code in this repo shows how to run four scenarios (Brazil, the vaccine protects disease only for 15 years; vaccination of age 6 with 80% coverage, without pre-vaccination screening; in transmission settings with 20%, 40%, 60%, and 80% 9-year-old seropositivity).
 
-For these scenarios, the demo samples the posterior VE estimates 50 times, and run 10 stochastic simulations per sample.
+For these scenarios, the demo samples the posterior VE estimates 50 times and runs 10 stochastic simulations per sample.
 
 **This folder contains**
 
 * *ps_new24.csv*: 200 posterior samples of the survival model, obtained by running the code in the *efficacy* section of this repo. 
 
 ### Scripts
-* *1.run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination in order to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run, to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
-* *2.process_pop_results.R*: Process output of model simulations to estimate the proportion of symptomatic and hospitalised cases averted in the entire population, over 10 years of vaccination (population impact), using the demo scenarios. 
-* *3.plot_pop_impact.R*: Plot population impact, to reconstruct Figure 2a (VS_D15, sp9 20, 40, 60, 80) in the manuscript. 
-* *4.process_ind_results.R*: Process output of model simulations to estimate the proportion of symptomatic and hospitalised cases averted in the first vaccinated, over 10 years of vaccination (individual impact), using the demo scenarios. 
-* *5.plot_pop_impact.R*: Plot individual impact, by serostatus to reconstruct Figure 4 (VS_D15, sp9 20, 40, 60, 80) in the manuscript. 
+* *1.run_impact_simualtions.R*: Main script to run the transmission model with and without vaccination to estimate the impact of Qdenga vaccination. The script is set up to run the model *model_stock_tak_2.R*, parameterised using 50 posterior samples from *ps_new24.csv*. For each posterior sample, 10 model simulations are run to demonstrate the code. To recreate the results from the paper, 50 simulations were run for each of 200 posterior samples. 
+* *2.process_pop_results.R*: Process output of model simulations to estimate the proportion of symptomatic and hospitalised cases averted in the entire population over 10 years of vaccination (population impact), using the demo scenarios. 
+* *3.plot_pop_impact.R*: Plot population impact to reconstruct Figure 2a (VS_D15, sp9 20, 40, 60, 80) in the manuscript. 
+* *4.process_ind_results.R*: Process output of model simulations to estimate the proportion of symptomatic and hospitalised cases averted in the first vaccinated cohort, over 10 years of vaccination (individual impact), using the demo scenarios. 
+* *5.plot_pop_impact.R*: Plot individual impact by serostatus to reconstruct Figure 4 (VS_D15, sp9 20, 40, 60, 80) in the manuscript. 
 
 
 ### Models
  
-* *model_stoch_tak_2.R*:  Transmission model used to estimate the population and individual level impact of Qdenga.
+* *model_stoch_tak_2.R*:  The transmission model used to estimate the population- and individual-level impact of Qdenga.
 
 
 ### R
-* *run_who_cluster.R*: functions to equlibriate the model, run the model with vaccination, and run the model without vaccination. 
-* *process_demog.R*: function to 
-* *run_model_fitting.R*: function to calibrate the stan model to the publicly available data.
-* *plot_model_outputs.R*: functions to calculate the observed attack rates and format model outputs for plotting. 
+* *run_who_cluster.R*: functions to equilibrate the model and run the model with and without vaccination.
+* *process_demog.R*: function to import the demography files. 
+* *config_params.R*: function to define all transmission model parameters, including the VE posterior draws.
 * *process_simulations.R*: functions to process simulation and calculate impact. 
 
 ### demog
-* age, births, initial population, life expectancy, and mortality demography data for Brazil and the Phillipines, used to parameterise the births and deaths rate of the simulation model *model_stoch_tak_2.R*
+* age, births, initial population, life expectancy, and mortality demography data for Brazil and the Philippines, used to parameterise the births and deaths rate of the simulation model *model_stoch_tak_2.R*
 
 # References 
 
