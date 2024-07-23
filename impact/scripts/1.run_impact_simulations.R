@@ -41,7 +41,7 @@ sapply(file.sources, source)
 # simulations for each such posterior sample, giving 10,000 simulations per
 # scenario in total. 
 
-# The scenarios run inclue:
+# The scenarios run include:
 
 #  - Assumed demography: Brazil or Phillipines
 #  - Vaccine mechanism of protection: only disease or also against infection 

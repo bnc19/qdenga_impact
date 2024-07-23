@@ -1,6 +1,8 @@
 ################################################################################
-# Plots for manuscript 
+# Script to plot example population impact using demo code 
 ################################################################################
+
+
 library(tidyr)
 library(dplyr)
 library(ggplot2)
@@ -24,7 +26,7 @@ theme_set(
 
 
 
-# scenrios 
+# scenarios 
 countries = c("BRA")
 vacc.age = 6
 vacc.cov = 0.8 
@@ -36,8 +38,8 @@ cv.y = 0.8
 ###################### Overall averted population  #############################
 ################################################################################
 
-df.out.cum.s = read.csv(paste0(pathout, "/VS_D15/", "1.2956_0.6833_1.0553/","/csv/Summary_cumulative_impacts_all_serotypes.csv"))
-df.out.cum.s$vacc_mode = "VS_D15"
+df.out.cum = read.csv(paste0(pathout, "/VS_D15/", "1.2956_0.6833_1.0553/","/csv/Summary_cumulative_impacts_all_serotypes.csv"))
+df.out.cum$vacc_mode = "VS_D15"
 
 BRA_pop_impact = df.out.cum %>% 
   filter(year == 10, pop == "pop", base  == "all") %>%
