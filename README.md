@@ -14,7 +14,7 @@ This repository is divided into two sections:
 
 * *Efficacy* - code to fit the cohort Bayesian survival model to published clinical incidence data in Stan to estimate Qdenga's efficacy. **Note that the code is currently set up to run the final model locally for 1000 iterations, with the first 500 discarded as burn-in. This is to demo the models quickly (~15 minutes on a standard computer). To obtain the results provided in the manuscript, four chains were run for 10,000 iterations, discarding the first 5000 iterations as burn-in.**
   
-* *Impact* - code to sample from the posterior distributions obtained in *efficacy* and simulate impact using a stochastic compartmental dengue transmission model. **Note that the code is currently set up to run four vaccine scenarios using 10 simulations for each of 50 posterior samples. To obtain the results provided in the manuscript, 50 simulations were run for each of 200 posterior samples across 4032 scenarios.**
+* *Impact* - code to sample from the posterior distribution obtained in *efficacy* and simulate impact using a stochastic compartmental dengue transmission model. **Note that the code is currently set up to run four vaccine scenarios using 10 simulations for each of 50 posterior samples. To obtain the results provided in the manuscript, 50 simulations were run for each of 200 posterior samples across 4032 scenarios.**
 
 
 ## Efficacy
